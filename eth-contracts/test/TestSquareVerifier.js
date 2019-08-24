@@ -3,5 +3,34 @@
 // Test verification with correct proof
 // - use the contents from proof.json generated from zokrates steps
 
-    
+
 // Test verification with incorrect proof
+var Verifier = artifacts.require('./Verifier');
+//var proof = require('C:/Users/zax0a/Desktop/Capstone/Blockchain-Capstone-master/zokrates/code/square/proof');
+var proof = require('../../zokrates/code/square/proof');
+
+contract('Verifier', accounts => {
+
+    const account_one = accounts[0];
+
+    describe('Verifier test', function () {
+        beforeEach(async function () {
+            this.contract = await Verifier.new({from: account_one});
+
+        })
+
+        it('🏡 should verify using correct proof', async function () {
+          let testProof = proof.proof;
+          let result = await this.contract.verifyTx.call(testProof.a, testProof.b, testProof.c, proof.inputs);
+          
+          assert.equal(result, true, "❌ Verifyer could not verify correct proof!");
+        })
+
+        it('🏡 should fail to verify using invalid proof', async function () {
+          let testProof = proof.proof;
+          let result = await this.contract.verifyTx.call(testProof.a, testProof.b, testProof.c, [proof.inputs[1], proof.inputs[0]]);
+          
+          assert.equal(result, false, "❌ Verifyer should not verify invalid proof!");
+        })
+    });
+})
