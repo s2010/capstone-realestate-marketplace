@@ -17,7 +17,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 ## Account Addresses
 
 1. Owner Address: 0x16a41FC04656c33E86D3BAcbe29aB44f6637121C
-2. Buyer Address (used to purchase listed real estates): 0xc82602c2302ee42fe70312650f55eea52738cb02
+2. Buyer Address: 0xc82602c2302ee42fe70312650f55eea52738cb02
 3. ZoKrates Address (Verifier Contract): 0x366De0f3a4192661a625bEFEC9467FB5E8c2C2fd
 4. ERC721 Contract Address: 0x48304287E5e04a9BB0e0C92330E4d1bf7D315311
 
